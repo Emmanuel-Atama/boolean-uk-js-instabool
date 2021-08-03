@@ -9,20 +9,25 @@
 // - Have the like button adding 1 like to the respective counter each time you click it
 // - Have the comments form to add another comment to the respective post
 // - The data must be persisted in the server so that when you refresh the page it doesn't go away
+let images = []
 
 fetch("http://localhost:3000/images")
   .then((res) => res.json())
   .then((images) => {
     console.log("Inside GET Fetch: ", images);
 for (let i = 0; i < images.length; i++) {
-    const image = images[i]
-    // console.log("Inside Images: ", image)
+    const imageData = images[i]
+    console.log("Inside ImageData: ", imageData)
 }
     renderCardImage(images)
   });
-const containerEl = document.querySelector("image-container")
+  console.log("images: ", images)
+const containerEl = document.querySelector(".image-container")
 
-function renderCardImage (dogData) {
+function renderCardImage (datas) {
+  for (let i = 0; i < datas.length; i++){
+const data = datas[i]
+console.log("inside data: ", data)
 const articleEl = document.createElement("article")
 articleEl.className = "image-card"
 containerEl.append(articleEl)
@@ -30,11 +35,11 @@ console.log("articleEl: ", articleEl)
 
 const titleEl = document.createElement("h2")
 titleEl.className = "title"
-titleEl.innerText = dogData.title
+titleEl.innerText = data.title
 articleEl.append(titleEl)
 
 const imageEl = document.createElement("img")
-imageEl.src = dogData.image
+imageEl.src = data.image
 imageEl.className = "image"
 articleEl.append(imageEl)
 
@@ -44,7 +49,7 @@ articleEl.append(frameEl)
 
 const spanEl = document.createElement("span")
 spanEl.className = "likes"
-spanEl.innerText = "0 likes"
+spanEl.innerText = data.likes
 frameEl.append(spanEl)
 
 const buttonEl = document.createElement("button")
@@ -56,12 +61,14 @@ const ulEl = document.createElement("ul")
 ulEl.className = "comments"
 articleEl.append(ulEl)
 
-// const listEl = document.createElement("li")
+const listEl = document.createElement("li")
 // listEl.innerText = "What a cute dog!", "Funny dog!!!", "He's a good buy"
+// ulEl.append(listEl)
 
-images.comments.forEach((dog) => {
-    let listEl = document.createElement("li")
-    listEl.innerText = dog
+data.comments.forEach((item) => {
+    const listEl = document.createElement("li")
+    listEl.innerText = item.content
     ulEl.append(listEl)
 });
+}
 }
