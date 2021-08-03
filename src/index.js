@@ -72,10 +72,6 @@ const formEl = document.createElement("form")
 formEl.className = "comment-form", "image-card"
 containerEl.append(formEl)
 
-const formTitleEl = document.createElement("h2")
-formTitleEl.className = "title"
-formTitleEl.innerText = "New Post"
-formEl.append(formTitleEl)
 
 const commentFormEl = document.createElement("form")
 commentFormEl.className = "comment-form"
@@ -93,7 +89,7 @@ btnEl.className = "comment-button"
 btnEl.type = "submit"
 btnEl.innerText = "Post"
 btnEl.addEventListener("click", () => {;
-  console.log("Inside button: ", btnEl)
+  console.log("Inside btnEl: ", btnEl)
 });
 commentFormEl.append(btnEl)
 }
