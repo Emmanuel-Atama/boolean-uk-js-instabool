@@ -9,25 +9,22 @@
 // - Have the like button adding 1 like to the respective counter each time you click it
 // - Have the comments form to add another comment to the respective post
 // - The data must be persisted in the server so that when you refresh the page it doesn't go away
-let images = []
 
 fetch("http://localhost:3000/images")
   .then((res) => res.json())
   .then((images) => {
     console.log("Inside GET Fetch: ", images);
-for (let i = 0; i < images.length; i++) {
-    const imageData = images[i]
-    console.log("Inside ImageData: ", imageData)
-}
+
     renderCardImage(images)
   });
-  console.log("images: ", images)
+  
+
 const containerEl = document.querySelector(".image-container")
 
 function renderCardImage (datas) {
   for (let i = 0; i < datas.length; i++){
 const data = datas[i]
-console.log("inside data: ", data)
+// console.log("inside data: ", data)
 const articleEl = document.createElement("article")
 articleEl.className = "image-card"
 containerEl.append(articleEl)
