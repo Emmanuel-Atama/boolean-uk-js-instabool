@@ -53,21 +53,23 @@ frameEl.append(spanEl)
 const buttonEl = document.createElement("button")
 buttonEl.className = "like-button"
 buttonEl.innerText = "♥"
+frameEl.append(buttonEl)
 buttonEl.addEventListener("click", () => {;
   console.log("buttonEl: ", buttonEl)
 });
-frameEl.append(buttonEl)
+
 
 const ulEl = document.createElement("ul")
 ulEl.className = "comments"
 articleEl.append(ulEl)
 
-const listEl = document.createElement("li")
+
 data.comments.forEach((item) => {
     const listEl = document.createElement("li")
     listEl.innerText = item.content
     ulEl.append(listEl)
 });
+
 const formEl = document.createElement("form")
 formEl.className = "comment-form", "image-card"
 containerEl.append(formEl)
