@@ -20,6 +20,7 @@ fetch("http://localhost:3000/images")
   
 
 const containerEl = document.querySelector(".image-container")
+console.log("conrainerEl: ", containerEl)
 
 function renderCardImage (datas) {
   for (let i = 0; i < datas.length; i++){
@@ -67,13 +68,30 @@ data.comments.forEach((item) => {
     listEl.innerText = item.content
     ulEl.append(listEl)
 });
-// const formEl = document.createElement("form")
-// formEl.className = "comment-form", "image-card"
-// containerEl.append(formEl)
+const formEl = document.createElement("form")
+formEl.className = "comment-form", "image-card"
+containerEl.append(formEl)
 
-// const formTitleEl = document.createElement("h2")
-// formTitleEl.className = "title"
-// formTitleEl.innerText = "New Post"
-// formEl.append(formTitleEl)
+const formTitleEl = document.createElement("h2")
+formTitleEl.className = "title"
+formTitleEl.innerText = "New Post"
+formEl.append(formTitleEl)
+
+const commentFormEl = document.createElement("form")
+commentFormEl.className = "comment-form"
+articleEl.append(commentFormEl)
+
+const inputEl = document.createElement("input")
+inputEl.className = "comment-input"
+inputEl.type = "text"
+inputEl.name = "comment"
+inputEl.placeholder = "Add a comment..."
+commentFormEl.append(inputEl)
+
+const btnEl = document.createElement("button")
+btnEl.className = "comment-button"
+btnEl.type = "submit"
+btnEl.innerText = "Post"
+commentFormEl.append(btnEl)
 }
 }
