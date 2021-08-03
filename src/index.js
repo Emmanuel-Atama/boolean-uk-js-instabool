@@ -53,16 +53,16 @@ frameEl.append(spanEl)
 const buttonEl = document.createElement("button")
 buttonEl.className = "like-button"
 buttonEl.innerText = "♥"
-frameEl.append(buttonEl)
-buttonEl.addEventListener("click", () => {;
-  console.log("buttonEl: ", buttonEl)
-});
 
+buttonEl.addEventListener("click", () => {;
+  console.log("clicked: ", data.id, data.likes)  
+  renderNewLikes (data)
+});
+frameEl.append(buttonEl)
 
 const ulEl = document.createElement("ul")
 ulEl.className = "comments"
 articleEl.append(ulEl)
-
 
 data.comments.forEach((item) => {
     const listEl = document.createElement("li")
@@ -90,8 +90,27 @@ btnEl.className = "comment-button"
 btnEl.type = "submit"
 btnEl.innerText = "Post"
 btnEl.addEventListener("click", () => {;
-  console.log("Inside btnEl: ", btnEl)
+  console.log("clicked: ", btnEl)
 });
 commentFormEl.append(btnEl)
 }
+}
+
+function renderNewLikes (like) {
+  const likesToUpdate = {
+    likes : like.likes + 1
+  }
+  const fetchOptions = {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(likesToUpdate)
+  }
+  
+  fetch(`http://localhost:3000/images/${like.id}`, fetchOptions)
+    .then((res) => res.json())
+    .then((updatedLikes) => {
+      // console.log("Inside PATCH Fetch: ", updatedLikes)
+    })
 }
