@@ -72,7 +72,6 @@ const formEl = document.createElement("form")
 formEl.className = "comment-form", "image-card"
 containerEl.append(formEl)
 
-
 const commentFormEl = document.createElement("form")
 commentFormEl.className = "comment-form"
 articleEl.append(commentFormEl)
