@@ -54,7 +54,7 @@ const buttonEl = document.createElement("button")
 buttonEl.className = "like-button"
 buttonEl.innerText = "♥"
 buttonEl.addEventListener("click", () => {;
-  console.log("Inside button: ", buttonEl)
+  console.log("buttonEl: ", buttonEl)
 });
 frameEl.append(buttonEl)
 
@@ -92,6 +92,9 @@ const btnEl = document.createElement("button")
 btnEl.className = "comment-button"
 btnEl.type = "submit"
 btnEl.innerText = "Post"
+btnEl.addEventListener("click", () => {;
+  console.log("Inside button: ", btnEl)
+});
 commentFormEl.append(btnEl)
 }
 }
