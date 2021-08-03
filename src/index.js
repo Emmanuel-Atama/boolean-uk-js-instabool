@@ -65,13 +65,18 @@ ulEl.className = "comments"
 articleEl.append(ulEl)
 
 const listEl = document.createElement("li")
-// listEl.innerText = "What a cute dog!", "Funny dog!!!", "He's a good buy"
-// ulEl.append(listEl)
-
 data.comments.forEach((item) => {
     const listEl = document.createElement("li")
     listEl.innerText = item.content
     ulEl.append(listEl)
 });
+// const formEl = document.createElement("form")
+// formEl.className = "comment-form", "image-card"
+// containerEl.append(formEl)
+
+// const formTitleEl = document.createElement("h2")
+// formTitleEl.className = "title"
+// formTitleEl.innerText = "New Post"
+// formEl.append(formTitleEl)
 }
 }
