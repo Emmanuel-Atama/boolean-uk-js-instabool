@@ -55,6 +55,9 @@ frameEl.append(spanEl)
 const buttonEl = document.createElement("button")
 buttonEl.className = "like-button"
 buttonEl.innerText = "♥"
+buttonEl.addEventListener("click", () => {;
+  console.log("Inside button: ", buttonEl)
+});
 frameEl.append(buttonEl)
 
 const ulEl = document.createElement("ul")
