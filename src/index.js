@@ -128,9 +128,9 @@ function renderNewPost (post) {
     body: JSON.stringify(productToCreate)
   };
   
-  fetch(`http://localhost:3000/comments/`, fetchOptions)
+  fetch("http://localhost:3000/comments/", fetchOptions)
     .then((res) => res.json())
-    .then((renderNewPost) => {
+    .then((newPost) => {
       console.log("Inside POST Fetch: ", newPost)
 });
 }
