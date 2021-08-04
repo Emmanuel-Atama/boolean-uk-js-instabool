@@ -56,7 +56,7 @@ buttonEl.innerText = "♥"
 
 buttonEl.addEventListener("click", () => {;
   console.log("clicked: ", data.id, data.likes)  
-  renderNewLikes (data)
+  // renderNewLikes (data)
 });
 frameEl.append(buttonEl)
 
@@ -96,41 +96,41 @@ commentFormEl.append(btnEl)
 }
 }
 
-function renderNewLikes (like) {
-  const likesToUpdate = {
-    likes : like.likes + 1
-  }
-  const fetchOptions = {
-    method: "PATCH",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(likesToUpdate)
-  }
+// function renderNewLikes (like) {
+//   const likesToUpdate = {
+//     likes : like.likes + 1
+//   }
+//   const fetchOptions = {
+//     method: "PATCH",
+//     headers: {
+//       "Content-Type": "application/json"
+//     },
+//     body: JSON.stringify(likesToUpdate)
+//   }
   
-  fetch(`http://localhost:3000/images/${like.id}`, fetchOptions)
-    .then((res) => res.json())
-    .then((updatedLikes) => {
-      // console.log("Inside PATCH Fetch: ", updatedLikes)
-    })
-}
+//   fetch(`http://localhost:3000/images/${like.id}`, fetchOptions)
+//     .then((res) => res.json())
+//     .then((updatedLikes) => {
+//       // console.log("Inside PATCH Fetch: ", updatedLikes)
+//     })
+// }
 
-function renderNewPost (post) {
-  const productToCreate = {
-    content: content + ""
-  };
+// function renderNewPost (post) {
+//   const productToCreate = {
+//     content: content + ""
+//   };
   
-  const fetchOptions = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(productToCreate)
-  };
+//   const fetchOptions = {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json"
+//     },
+//     body: JSON.stringify(productToCreate)
+//   };
   
-  fetch("http://localhost:3000/comments/", fetchOptions)
-    .then((res) => res.json())
-    .then((newPost) => {
-      console.log("Inside POST Fetch: ", newPost)
-});
-}
+//   fetch("http://localhost:3000/comments/", fetchOptions)
+//     .then((res) => res.json())
+//     .then((newPost) => {
+//       console.log("Inside POST Fetch: ", newPost)
+// });
+// }
