@@ -117,8 +117,7 @@ function renderNewLikes (like) {
 
 function renderNewPost (post) {
   const productToCreate = {
-    name: "beetroot",
-    price: 0.35
+    content: content + ""
   };
   
   const fetchOptions = {
@@ -129,7 +128,7 @@ function renderNewPost (post) {
     body: JSON.stringify(productToCreate)
   };
   
-  fetch("http://localhost:3000/comments", fetchOptions)
+  fetch(`http://localhost:3000/comments/`, fetchOptions)
     .then((res) => res.json())
     .then((renderNewPost) => {
       console.log("Inside POST Fetch: ", newPost)
