@@ -114,3 +114,24 @@ function renderNewLikes (like) {
       // console.log("Inside PATCH Fetch: ", updatedLikes)
     })
 }
+
+function renderNewPost (post) {
+  const productToCreate = {
+    name: "beetroot",
+    price: 0.35
+  };
+  
+  const fetchOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(productToCreate)
+  };
+  
+  fetch("http://localhost:3000/comments", fetchOptions)
+    .then((res) => res.json())
+    .then((renderNewPost) => {
+      console.log("Inside POST Fetch: ", newPost)
+});
+}
